@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>DevDen - Chat</title>
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="flex flex-1 min-h-screen h-screen">
+		<div class="bg-gray-800 w-56 hidden lg:flex lg:flex-col overflow-y-hidden">
+			<div class="logo flex items-center px-6 py-4 text-xl text-gray-100 font-bold border-b border-gray-900">
+				DevDen
+			</div>
+			<div class="flex flex-col py-4 px-2">
+				<h3 class="px-2 my-4 uppercase tracking-wide font-semibold text-xs text-gray-500">
+					Current Room
+				</h3>
+				<span class="mb-2 bg-gray-750 text-gray-200 px-2 rounded py-2 flex items-center mx-2">
+					<span class="text-xl">#</span>
+					<span class="ml-2" id="room-name"></span>
+				</span>
+			</div>
+			<div class="flex flex-col pb-4 px-2">
+				<h3 class="px-2 my-4 uppercase tracking-wide font-semibold text-xs text-gray-500">
+					Available Rooms
+				</h3>
+				<div class="flex flex-1 flex-col overflow-y-auto pb-4 px-2 hashtag-bar" id="rooms-list">
+				</div>
+			</div>
+		</div>
+		<div class="bg-gray-750 flex-1 flex flex-col justify-between">
+			<div class="overflow-y-auto text-sm text-gray-400 chat chat-messages flex-grow">
+			</div>
+			<div class="bg-gray-750 h-24 flex items-center mx-6 border-t border-gray-600">
+				<form id="chat-form" class="flex-1">
+					<input id="msg" type="text" required autocomplete="off" placeholder="Message"
+						class="w-full text-sm h-10 px-4 py-2 bg-gray-700 text-gray-200 focus:outline-none">
+				</form>
+			</div>
+		</div>
+		<div class="bg-gray-700 hidden lg:block w-56 overflow-y-auto sidebar-users px-3 py-3 flex flex-col">
+			<h3 class="px-2 my-4 uppercase tracking-wide font-semibold text-xs text-gray-500 mb-2">
+				Users
+			</h3>
+			<div class="flex flex-col" id="users">
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+		integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
